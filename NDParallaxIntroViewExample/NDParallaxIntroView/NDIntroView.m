@@ -60,11 +60,6 @@
     
     [self.onboardContentArray enumerateObjectsUsingBlock:^(NSDictionary *pageDict, NSUInteger idx, BOOL *stop) {
         
-        if(idx>self.pages){
-            NSLog(@"enumerateObjectsUsingBlock %ld",idx);
-            return;
-        }
-        
         NDIntroPageView *pageView = [[[NSBundle mainBundle] loadNibNamed:@"NDIntroPageView" owner:nil options:nil] lastObject];
         pageView.frame = CGRectMake(self.frame.size.width * idx, 0, self.frame.size.width, self.frame.size.height);
         pageView.titlelabel.text = (pageDict[kNDIntroPageTitle]) ? pageDict[kNDIntroPageTitle] : @"nil";
