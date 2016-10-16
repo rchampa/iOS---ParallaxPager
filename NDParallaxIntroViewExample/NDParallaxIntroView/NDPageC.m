@@ -6,9 +6,9 @@
 //  Copyright © 2016 Simon Wicha. All rights reserved.
 //
 
-#import "NDPageA.h"
+#import "NDPageC.h"
 
-@implementation NDPageA
+@implementation NDPageC
 
 - (void)initialize{
     self.backgroundColor = [UIColor clearColor];
@@ -28,7 +28,4 @@
     return self;
 }
 
-- (IBAction)onClickNext:(id)sender {
-    [self.delegate onClickNext:1];
-}
 @end

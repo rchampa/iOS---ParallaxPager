@@ -6,9 +6,9 @@
 //  Copyright © 2016 Simon Wicha. All rights reserved.
 //
 
-#import "NDPageA.h"
+#import "NDPageD.h"
 
-@implementation NDPageA
+@implementation NDPageD
 
 - (void)initialize{
     self.backgroundColor = [UIColor clearColor];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NextClickDelegate.h"
 
-@interface NDPageA : UIView
+@interface NDPageD : UIView
 
 @property (assign, nonatomic) id<NextClickDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;

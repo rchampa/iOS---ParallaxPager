@@ -31,46 +31,16 @@
     [self startIntro];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - NDIntroView methods
 
 -(void)startIntro {
-    NSArray *pageContentArray = @[@{kNibName : @"NDIntroPageView",
-                                    kNDIntroPageTitle : @"NDParallaxIntroView",
-                                    kNDIntroPageDescription : @"Now you can easily add your beautiful intro into your app with no hassle.",
-                                    kNDIntroPageImageName : @"parallax",
-                                    kNDShowInputUser : @NO,
-                                    },
-                                  @{kNDIntroPageTitle : @"Work-It-Out",
-                                    kNDIntroPageDescription : @"A great App to create your own personal workout and get instructed by your phone.",
-                                    kNDIntroPageImageName : @"workitout",
-                                    kNDShowInputUser : @YES,
-                                    },
-                                  @{kNDIntroPageTitle : @"ColorSkill",
-                                    kNDIntroPageDescription : @"A small game while waiting for the bus. Easy, quick and addictive.",
-                                    kNDIntroPageImageName : @"colorskill",
-                                    kNDShowInputUser : @NO,
-                                    },
-                                  @{kNDIntroPageTitle : @"Appreciate",
-                                    kNDIntroPageDescription : @"A little helper to make your life happier. Soon available on the AppStore",
-                                    kNDIntroPageImageName : @"appreciate",
-                                    kNDShowInputUser : @NO,
-                                    },
-                                  @{kNDIntroPageTitle : @"Do you like it?",
-                                    kNDIntroPageImageName : @"firstImage",
-                                    kNDIntroPageTitleLabelHeightConstraintValue : @0,
-                                    kNDIntroPageImageHorizontalConstraintValue : @-40,
-                                    kNDShowInputUser : @NO,
-                                    }
-                                  ];
+    NSArray *pageContentArray;
     self.introView = [[NDIntroView alloc] initWithFrame:self.view.frame
                                           parallaxImage:[UIImage imageNamed:@"parallaxBgImage"]
                                                 andData:pageContentArray
-                                           withNumPages:3
+                                           withNumPages:2
+                                        showPageControl:NO
                       ];
     self.introView.delegate = self;
     [self.view addSubview:self.introView];

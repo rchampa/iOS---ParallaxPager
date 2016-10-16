@@ -28,4 +28,42 @@
     return self;
 }
 
+- (IBAction)onClick:(id)sender {
+    
+    [NSThread sleepForTimeInterval:2.0f];
+    [self makeVisible:self.buttonNext];
+    [self makeVisible:self.textfieldCode];
+    
+    if(self.delegate){
+        //[self.delegate onClickValidateInput];
+    }
+    else{
+        NSLog(@"Your delegate is null");
+    }
+}
+
+- (IBAction)goNextPage:(id)sender {
+    [self.delegate onClickNext:2];
+}
+
+- (IBAction)goPreviousPage:(id)sender {
+    [self.delegate onClickNext:0];
+}
+
+- (void)makeVisible:(UIView *)view {
+    view.alpha = 0;
+    view.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        view.alpha = 1;
+    }];
+}
+
+- (void)makeInvisible:(UIView *)view{
+    [UIView animateWithDuration:0.3 animations:^{
+        view.alpha = 0;
+    } completion: ^(BOOL finished) {//creates a variable (BOOL) called "finished" that is set to *YES* when animation IS completed.
+        view.hidden = finished;//if animation is finished ("finished" == *YES*), then hidden = "finished" ... (aka hidden = *YES*)
+    }];
+}
+
 @end

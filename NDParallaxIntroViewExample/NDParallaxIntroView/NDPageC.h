@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NextClickDelegate.h"
 
-@interface NDPageA : UIView
+@interface NDPageC : UIView
 
-@property (assign, nonatomic) id<NextClickDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UILabel *titlelabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
-- (IBAction)onClickNext:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *titlelabel;
 
 @end
