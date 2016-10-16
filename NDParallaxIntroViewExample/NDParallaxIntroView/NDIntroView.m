@@ -16,15 +16,20 @@
 @property (strong, nonatomic) NSMutableArray<UIView *> *pageViews;
 @property (strong, nonatomic) NSArray <NSDictionary*> *onboardContentArray;
 
+@property int pages;
+
 @end
 
 @implementation NDIntroView
 
-- (id)initWithFrame:(CGRect)frame parallaxImage:(UIImage *)parallaxImage andData:(NSArray *)data {
+- (id)initWithFrame:(CGRect)frame parallaxImage:(UIImage *)parallaxImage andData:(NSArray *)data withNumPages:(int)pages {
     self = [super initWithFrame:frame];
     if(self) {
+        self.pages = pages;
         self.onboardContentArray = data;
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-50, 0, self.scrollView.frame.size.width * self.onboardContentArray.count, self.frame.size.height)];
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-50, 0, self.scrollView.frame.size.width * self.onboardContentArray.count, self.frame.size.height)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-50, 0, self.scrollView.frame.size.width * pages, self.frame.size.height)];
+        
         [imageView setImage:parallaxImage];
         imageView.contentMode = UIViewContentModeLeft;
         [self.parallaxBackgroundScrollView addSubview:imageView];
@@ -40,11 +45,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    if(self.pageControl.currentPage>=3){
-        //_pageControl.numberOfPages = self.onboardContentArray.count;
-        return;
-    }
-    
     CGFloat pageWidth = CGRectGetWidth(self.bounds);
     CGFloat pageFraction = self.scrollView.contentOffset.x / pageWidth;
     self.pageControl.currentPage = roundf(pageFraction);
@@ -59,7 +59,7 @@
 - (void)generateIntroPageViews {
     [self.onboardContentArray enumerateObjectsUsingBlock:^(NSDictionary *pageDict, NSUInteger idx, BOOL *stop) {
         
-        if(idx>=3){
+        if(idx>self.pages){
             NSLog(@"enumerateObjectsUsingBlock %ld",idx);
             return;
         }
@@ -74,6 +74,8 @@
         
         pageView.inputUser.hidden  = ![pageDict[kNDShowInputUser] boolValue];
         
+        
+        //XXX
         if (self.onboardContentArray.count - 1 == idx){
             [pageView addSubview:self.lastPageButton];
         }
@@ -87,7 +89,8 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
-        _scrollView.contentSize = CGSizeMake(self.frame.size.width * self.onboardContentArray.count, self.scrollView.frame.size.height);
+//        _scrollView.contentSize = CGSizeMake(self.frame.size.width * self.onboardContentArray.count, self.scrollView.frame.size.height);
+        _scrollView.contentSize = CGSizeMake(self.frame.size.width * self.pages, self.scrollView.frame.size.height);
         _scrollView.showsHorizontalScrollIndicator = NO;
         [_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
@@ -112,7 +115,7 @@
         _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-80, self.frame.size.width, 10)];
         _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
         //_pageControl.numberOfPages = self.onboardContentArray.count;
-        _pageControl.numberOfPages = 3;
+        _pageControl.numberOfPages = self.pages;
     }
     return _pageControl;
 }

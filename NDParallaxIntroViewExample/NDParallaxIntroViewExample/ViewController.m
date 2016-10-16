@@ -54,19 +54,23 @@
                                     kNDIntroPageImageName : @"colorskill",
                                     kNDShowInputUser : @NO,
                                     },
-//                                  @{kNDIntroPageTitle : @"Appreciate",
-//                                    kNDIntroPageDescription : @"A little helper to make your life happier. Soon available on the AppStore",
-//                                    kNDIntroPageImageName : @"appreciate",
-//                                    kNDShowInputUser : @NO,
-//                                    },
-//                                  @{kNDIntroPageTitle : @"Do you like it?",
-//                                    kNDIntroPageImageName : @"firstImage",
-//                                    kNDIntroPageTitleLabelHeightConstraintValue : @0,
-//                                    kNDIntroPageImageHorizontalConstraintValue : @-40,
-//                                    kNDShowInputUser : @NO,
-//                                    }
+                                  @{kNDIntroPageTitle : @"Appreciate",
+                                    kNDIntroPageDescription : @"A little helper to make your life happier. Soon available on the AppStore",
+                                    kNDIntroPageImageName : @"appreciate",
+                                    kNDShowInputUser : @NO,
+                                    },
+                                  @{kNDIntroPageTitle : @"Do you like it?",
+                                    kNDIntroPageImageName : @"firstImage",
+                                    kNDIntroPageTitleLabelHeightConstraintValue : @0,
+                                    kNDIntroPageImageHorizontalConstraintValue : @-40,
+                                    kNDShowInputUser : @NO,
+                                    }
                                   ];
-    self.introView = [[NDIntroView alloc] initWithFrame:self.view.frame parallaxImage:[UIImage imageNamed:@"parallaxBgImage"] andData:pageContentArray];
+    self.introView = [[NDIntroView alloc] initWithFrame:self.view.frame
+                                          parallaxImage:[UIImage imageNamed:@"parallaxBgImage"]
+                                                andData:pageContentArray
+                                           withNumPages:3
+                      ];
     self.introView.delegate = self;
     [self.view addSubview:self.introView];
 }

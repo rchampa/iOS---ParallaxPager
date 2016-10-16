@@ -30,6 +30,6 @@ static NSString *const kNDShowInputUser= @"showInputUser";
 @property (strong, nonatomic) UIButton *lastPageButton;
 @property (strong, nonatomic) UIPageControl *pageControl;
 
-- (id)initWithFrame:(CGRect)frame parallaxImage:(UIImage *)parallaxImage andData:(NSArray *)data;
+- (id)initWithFrame:(CGRect)frame parallaxImage:(UIImage *)parallaxImage andData:(NSArray *)data withNumPages:(int)pages;
 
 @end
