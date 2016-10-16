@@ -57,6 +57,7 @@
 }
 
 - (void)generateIntroPageViews {
+    
     [self.onboardContentArray enumerateObjectsUsingBlock:^(NSDictionary *pageDict, NSUInteger idx, BOOL *stop) {
         
         if(idx>self.pages){
@@ -76,7 +77,8 @@
         
         
         //XXX
-        if (self.onboardContentArray.count - 1 == idx){
+        //if (self.onboardContentArray.count - 1 == idx){
+        if (self.pages - 1 == idx){
             [pageView addSubview:self.lastPageButton];
         }
         
@@ -97,6 +99,21 @@
     return _scrollView;
 }
 
+-(UIPageControl *)pageControl {
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-80, self.frame.size.width, 10)];
+        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+        //_pageControl.numberOfPages = self.onboardContentArray.count;
+        _pageControl.numberOfPages = self.pages;
+    }
+    return _pageControl;
+}
+-(void) updatePages:(int)num_pages{
+    self.pages = num_pages;
+    _pageControl.numberOfPages = num_pages;
+    _scrollView.contentSize = CGSizeMake(self.frame.size.width * num_pages, self.scrollView.frame.size.height);
+}
+
 -(UIScrollView *)parallaxBackgroundScrollView {
     if (!_parallaxBackgroundScrollView) {
         _parallaxBackgroundScrollView = [[UIScrollView alloc] initWithFrame:self.frame];
@@ -108,16 +125,6 @@
         [_parallaxBackgroundScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
     return _parallaxBackgroundScrollView;
-}
-
--(UIPageControl *)pageControl {
-    if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-80, self.frame.size.width, 10)];
-        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-        //_pageControl.numberOfPages = self.onboardContentArray.count;
-        _pageControl.numberOfPages = self.pages;
-    }
-    return _pageControl;
 }
 
 -(UIButton *)lastPageButton {

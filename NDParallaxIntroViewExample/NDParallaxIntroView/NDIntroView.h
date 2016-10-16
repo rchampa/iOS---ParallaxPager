@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *const kNDIntroPageTitle = @"title";
-static NSString *const kNDIntroPageDescription = @"description";
-static NSString *const kNDIntroPageImageName = @"imageName";
-static NSString *const kNDIntroPageTitleLabelHeightConstraintValue = @"titleLabelHeightConstraint";
-static NSString *const kNDIntroPageImageHorizontalConstraintValue = @"imageHorizontalConstraint";
+static NSString *const kNibName                                 	= @"nibName";
+static NSString *const kNDIntroPageTitle                            = @"title";
+static NSString *const kNDIntroPageDescription                      = @"description";
+static NSString *const kNDIntroPageImageName                        = @"imageName";
+static NSString *const kNDIntroPageTitleLabelHeightConstraintValue  = @"titleLabelHeightConstraint";
+static NSString *const kNDIntroPageImageHorizontalConstraintValue   = @"imageHorizontalConstraint";
 
 static NSString *const kNDShowInputUser= @"showInputUser";
 
@@ -31,5 +32,6 @@ static NSString *const kNDShowInputUser= @"showInputUser";
 @property (strong, nonatomic) UIPageControl *pageControl;
 
 - (id)initWithFrame:(CGRect)frame parallaxImage:(UIImage *)parallaxImage andData:(NSArray *)data withNumPages:(int)pages;
+- (void)updatePages:(int)num_pages;
 
 @end

@@ -16,6 +16,10 @@
 		819164731CC5D62200E57451 /* NDIntroPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8191646F1CC5D62200E57451 /* NDIntroPageView.m */; };
 		819164741CC5D62200E57451 /* NDIntroPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819164701CC5D62200E57451 /* NDIntroPageView.xib */; };
 		819164751CC5D62200E57451 /* NDIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 819164721CC5D62200E57451 /* NDIntroView.m */; };
+		8CCA26311DB3A16F0066BF3C /* NDPageA.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA262C1DB3A16F0066BF3C /* NDPageA.m */; };
+		8CCA26321DB3A16F0066BF3C /* NDPageA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CCA262D1DB3A16F0066BF3C /* NDPageA.xib */; };
+		8CCA26331DB3A16F0066BF3C /* NDPageB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA262F1DB3A16F0066BF3C /* NDPageB.m */; };
+		8CCA26341DB3A16F0066BF3C /* NDPageB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CCA26301DB3A16F0066BF3C /* NDPageB.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,12 @@
 		819164701CC5D62200E57451 /* NDIntroPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NDIntroPageView.xib; sourceTree = "<group>"; };
 		819164711CC5D62200E57451 /* NDIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDIntroView.h; sourceTree = "<group>"; };
 		819164721CC5D62200E57451 /* NDIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDIntroView.m; sourceTree = "<group>"; };
+		8CCA262B1DB3A16F0066BF3C /* NDPageA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDPageA.h; sourceTree = "<group>"; };
+		8CCA262C1DB3A16F0066BF3C /* NDPageA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDPageA.m; sourceTree = "<group>"; };
+		8CCA262D1DB3A16F0066BF3C /* NDPageA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NDPageA.xib; sourceTree = "<group>"; };
+		8CCA262E1DB3A16F0066BF3C /* NDPageB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDPageB.h; sourceTree = "<group>"; };
+		8CCA262F1DB3A16F0066BF3C /* NDPageB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDPageB.m; sourceTree = "<group>"; };
+		8CCA26301DB3A16F0066BF3C /* NDPageB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NDPageB.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,12 @@
 		8191646D1CC5D62200E57451 /* NDParallaxIntroView */ = {
 			isa = PBXGroup;
 			children = (
+				8CCA262B1DB3A16F0066BF3C /* NDPageA.h */,
+				8CCA262C1DB3A16F0066BF3C /* NDPageA.m */,
+				8CCA262D1DB3A16F0066BF3C /* NDPageA.xib */,
+				8CCA262E1DB3A16F0066BF3C /* NDPageB.h */,
+				8CCA262F1DB3A16F0066BF3C /* NDPageB.m */,
+				8CCA26301DB3A16F0066BF3C /* NDPageB.xib */,
 				8191646E1CC5D62200E57451 /* NDIntroPageView.h */,
 				8191646F1CC5D62200E57451 /* NDIntroPageView.m */,
 				819164701CC5D62200E57451 /* NDIntroPageView.xib */,
@@ -157,10 +173,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CCA26321DB3A16F0066BF3C /* NDPageA.xib in Resources */,
 				819164661CC5D5EF00E57451 /* LaunchScreen.storyboard in Resources */,
 				819164631CC5D5EF00E57451 /* Assets.xcassets in Resources */,
 				819164741CC5D62200E57451 /* NDIntroPageView.xib in Resources */,
 				819164611CC5D5EF00E57451 /* Main.storyboard in Resources */,
+				8CCA26341DB3A16F0066BF3C /* NDPageB.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +191,9 @@
 			files = (
 				8191645E1CC5D5EF00E57451 /* ViewController.m in Sources */,
 				8191645B1CC5D5EF00E57451 /* AppDelegate.m in Sources */,
+				8CCA26311DB3A16F0066BF3C /* NDPageA.m in Sources */,
 				819164731CC5D62200E57451 /* NDIntroPageView.m in Sources */,
+				8CCA26331DB3A16F0066BF3C /* NDPageB.m in Sources */,
 				819164751CC5D62200E57451 /* NDIntroView.m in Sources */,
 				819164581CC5D5EF00E57451 /* main.m in Sources */,
 			);

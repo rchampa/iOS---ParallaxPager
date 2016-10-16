@@ -39,7 +39,8 @@
 #pragma mark - NDIntroView methods
 
 -(void)startIntro {
-    NSArray *pageContentArray = @[@{kNDIntroPageTitle : @"NDParallaxIntroView",
+    NSArray *pageContentArray = @[@{kNibName : @"NDIntroPageView",
+                                    kNDIntroPageTitle : @"NDParallaxIntroView",
                                     kNDIntroPageDescription : @"Now you can easily add your beautiful intro into your app with no hassle.",
                                     kNDIntroPageImageName : @"parallax",
                                     kNDShowInputUser : @NO,
@@ -76,11 +77,14 @@
 }
 
 -(void)launchAppButtonPressed {
-    [UIView animateWithDuration:0.7f animations:^{
-        self.introView.alpha = 0;
-    } completion:^(BOOL finished) {
-        [self.introView removeFromSuperview];
-    }];
+//    [UIView animateWithDuration:0.7f animations:^{
+//        self.introView.alpha = 0;
+//    } completion:^(BOOL finished) {
+//        [self.introView removeFromSuperview];
+//    }];
+    
+    [self.introView updatePages:5];
+    
 }
 
 @end
