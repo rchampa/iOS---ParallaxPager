@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *titlelabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
-- (IBAction)onClickNext:(id)sender;
+- (IBAction)goToPreviousPage:(id)sender;
+- (IBAction)goToLoginPage:(id)sender;
 
 @end

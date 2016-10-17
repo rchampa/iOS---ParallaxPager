@@ -27,7 +27,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *textfieldCode;
 
 - (IBAction)onClick:(id)sender;
-- (IBAction)goNextPage:(id)sender;
 - (IBAction)goPreviousPage:(id)sender;
+- (IBAction)validateCode:(id)sender;
+
 
 @end

@@ -28,7 +28,11 @@
     return self;
 }
 
-- (IBAction)onClickNext:(id)sender {
-    [self.delegate onClickNext:1];
+
+- (IBAction)goToPreviousPage:(id)sender {
+    [self.delegate goToPreviousPage];
+}
+
+- (IBAction)goToLoginPage:(id)sender {
 }
 @end

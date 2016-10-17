@@ -31,8 +31,9 @@
 - (IBAction)onClick:(id)sender {
     
     [NSThread sleepForTimeInterval:2.0f];
-    [self makeVisible:self.buttonNext];
+    //[self makeVisible:self.buttonNext];
     [self makeVisible:self.textfieldCode];
+    [self.descriptionLabel setText:@"Check your email!"];
     
     if(self.delegate){
         //[self.delegate onClickValidateInput];
@@ -42,12 +43,16 @@
     }
 }
 
-- (IBAction)goNextPage:(id)sender {
-    [self.delegate onClickNext:2];
-}
 
 - (IBAction)goPreviousPage:(id)sender {
-    [self.delegate onClickNext:0];
+    [self.delegate goToPreviousPage];
+}
+
+- (IBAction)validateCode:(id)sender {
+    if([self.textfieldCode.text length]!=0){
+        [self.delegate updateNumPages:3];
+        [self.delegate goToNextPage];
+    }
 }
 
 - (void)makeVisible:(UIView *)view {

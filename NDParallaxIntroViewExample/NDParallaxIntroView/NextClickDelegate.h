@@ -10,5 +10,8 @@
 
 @protocol NextClickDelegate <NSObject>
 @required
--(void)onClickNext:(int)toPage;
+-(void)goToNextPage;
+-(void)goToPreviousPage;
+//@optional
+-(void)updateNumPages:(int)num_pages;
 @end

@@ -28,4 +28,14 @@
     return self;
 }
 
+- (IBAction)goToBackPage:(id)sender {
+    [self.delegate goToPreviousPage];
+}
+
+- (IBAction)updateUserDetails:(id)sender {
+    if(self.tf_name.text.length!=0){
+        [self.delegate updateNumPages:4];
+        [self.delegate goToNextPage];
+    }
+}
 @end

@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *titlelabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 - (IBAction)onClickNext:(id)sender;
+- (IBAction)goToExit:(id)sender;
 
 @end

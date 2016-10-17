@@ -68,17 +68,13 @@
     
     NDPageA *pageView0 = [[[NSBundle mainBundle] loadNibNamed:@"NDPageA" owner:nil options:nil] lastObject];
     pageView0.frame = CGRectMake(self.frame.size.width *page, 0, self.frame.size.width, self.frame.size.height);
-    pageView0.titlelabel.text = @"Welcome!";
-    pageView0.descriptionLabel.text = @"A very long long description";
     pageView0.delegate = self;
     [self.scrollView addSubview:pageView0];
     page++;
     
     NDPageB *pageView1 = [[[NSBundle mainBundle] loadNibNamed:@"NDPageB" owner:nil options:nil] lastObject];
     pageView1.frame = CGRectMake(self.frame.size.width *page, 0, self.frame.size.width, self.frame.size.height);
-    pageView1.titlelabel.text = @"Hello!";
-    pageView1.descriptionLabel.text = @"A very long long description";
-    pageView1.buttonNext.hidden = YES;
+    //pageView1.buttonNext.hidden = YES;
     pageView1.textfieldCode.hidden = YES;
     pageView1.delegate = self;
     [self.scrollView addSubview:pageView1];
@@ -86,17 +82,13 @@
     
     NDPageC *pageView2 = [[[NSBundle mainBundle] loadNibNamed:@"NDPageC" owner:nil options:nil] lastObject];
     pageView2.frame = CGRectMake(self.frame.size.width *page, 0, self.frame.size.width, self.frame.size.height);
-    pageView2.titlelabel.text = @"Tell me your data!";
-    pageView2.descriptionLabel.text = @"A very long long description";
-    
+    pageView2.delegate = self;
     [self.scrollView addSubview:pageView2];
     page++;
     
     NDPageD *pageView3 = [[[NSBundle mainBundle] loadNibNamed:@"NDPageD" owner:nil options:nil] lastObject];
     pageView3.frame = CGRectMake(self.frame.size.width *page, 0, self.frame.size.width, self.frame.size.height);
-    pageView3.titlelabel.text = @"Good job!";
-    pageView3.descriptionLabel.text = @"The job is done!";
-    
+    pageView3.delegate = self;
     [self.scrollView addSubview:pageView3];
     page++;
     
@@ -168,16 +160,25 @@
     return _lastPageButton;
 }
 
--(void)onClickNext:(int)toPage{
-    CGRect frame = self.scrollView.frame;
-    frame.origin.x = frame.size.width * toPage;
-    frame.origin.y = 0;
-    [self.scrollView scrollRectToVisible:frame animated:YES];
-    //_pageControl.currentPage = 1;
+-(void)goToNextPage{
+    [self changePage:(int)self.pageControl.currentPage+1];
+}
+-(void)goToPreviousPage{
+    [self changePage:(int)self.pageControl.currentPage-1];
 }
 -(void)onClickValidateInput{
     [self updatePages:4];
-    [self onClickNext:2];
+    [self goToNextPage];
+}
+
+-(void)changePage:(int)num_page{
+    CGRect frame = self.scrollView.frame;
+    frame.origin.x = frame.size.width * num_page;
+    frame.origin.y = 0;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
+}
+-(void)updateNumPages:(int)num_pages{
+    [self updatePages:num_pages];
 }
 
 @end

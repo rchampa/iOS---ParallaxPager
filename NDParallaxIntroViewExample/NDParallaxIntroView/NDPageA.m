@@ -12,6 +12,10 @@
 
 - (void)initialize{
     self.backgroundColor = [UIColor clearColor];
+    UIView *blueCover = [[UIView alloc] initWithFrame: self.imageView.frame];
+    blueCover.backgroundColor = [UIColor blueColor];
+    blueCover.layer.opacity = 0.5f;
+    [self addSubview:blueCover];
 }
 
 - (id)initWithCoder:(NSCoder *)aCoder{
@@ -29,6 +33,10 @@
 }
 
 - (IBAction)onClickNext:(id)sender {
-    [self.delegate onClickNext:1];
+    [self.delegate goToNextPage];
+}
+
+- (IBAction)goToExit:(id)sender {
+    [self.delegate goToPreviousPage];
 }
 @end
